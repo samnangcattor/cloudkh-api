@@ -18,6 +18,7 @@ gem "mysql2", "0.3.21"
 
 # Support
 gem "dotenv-rails", "~> 2.1"
+gem "config", "~> 1.0"
 
 group :development, :test do
   gem "byebug", platform: :mri
