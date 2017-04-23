@@ -20,7 +20,8 @@ group :development, :test do
 end
 
 group :development do
-  gem "web-console", ">= 3.3.0"
+  gem "rubocop", "~> 0.40.0", require: false
+  gem "rubocop-checkstyle_formatter", "~> 0.2.0", require: false
   gem "listen", "~> 3.0.5"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
