@@ -12,7 +12,10 @@ Rails:
 
 AllCops:
   Excludes:
-    - db/schema.rb
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'spec/spec_helper.rb'
 
 # Indent private/protected/public as deep as method definitions
 Style/AccessModifierIndentation:
