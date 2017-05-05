@@ -1,0 +1,14 @@
+machine:
+  pre:
+    - rvm use 2.2.3
+  ruby:
+    version: ruby-2.2.3
+dependencies:
+  pre:
+    - sh config/circleci/initialize.sh
+test:
+  pre:
+    - bundle exec rubocop
+  override:
+    # - bundle exec rspec --format progress --require spec_helper spec:
+    #     timeout: 1800
