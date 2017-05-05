@@ -1,6 +1,9 @@
 require_relative "boot"
 
 require "rails/all"
+require "google/apis/drive_v3"
+require "googleauth"
+require "googleauth/stores/file_token_store"
 
 # Require the gems listed in Gemfile, including any gems
 # you"ve limited to :test, :development, or :production.
