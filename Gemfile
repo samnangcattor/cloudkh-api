@@ -23,6 +23,9 @@ gem "config", "~> 1.0"
 # Protect CORS
 gem "rack-cors", "0.4.0", require: "rack/cors"
 
+# Google api
+gem "google-api-client", "~> 0.11.1"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
