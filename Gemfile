@@ -20,6 +20,9 @@ gem "mysql2", "0.3.21"
 gem "dotenv-rails", "~> 2.1"
 gem "config", "~> 1.0"
 
+# Protect CORS
+gem "rack-cors", "0.4.0", require: "rack/cors"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
