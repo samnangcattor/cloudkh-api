@@ -37,12 +37,18 @@ group :assets do
 end
 
 group :development do
+  gem "faker", "~> 1.6", ">= 1.6.3"
+  gem "pry-rails", "~> 0.3.4"
+  gem "unicode-display_width", "~> 0.1.1"
   gem "pry", "~> 0.10.3"
-  gem "rubocop", "~> 0.40.0", require: false
+  gem "rubocop", "~> 0.36.0", require: false
   gem "rubocop-checkstyle_formatter", "~> 0.2.0", require: false
   gem "listen", "~> 3.0.5"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem "awesome_print", "~> 1.7"
+  gem "hirb", "~> 0.7.3"
+  gem "hirb-unicode", "~> 0.0.5"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
