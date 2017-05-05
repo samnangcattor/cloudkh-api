@@ -24,7 +24,7 @@ gem "config", "~> 1.0"
 gem "rack-cors", "0.4.0", require: "rack/cors"
 
 # Google api
-gem "google-api-client", "~> 0.11.1"
+gem "google-api-client", "~> 0.10.3"
 
 group :development, :test do
   gem "byebug", platform: :mri
@@ -37,6 +37,7 @@ group :assets do
 end
 
 group :development do
+  gem "pry", "~> 0.10.3"
   gem "rubocop", "~> 0.40.0", require: false
   gem "rubocop-checkstyle_formatter", "~> 0.2.0", require: false
   gem "listen", "~> 3.0.5"
