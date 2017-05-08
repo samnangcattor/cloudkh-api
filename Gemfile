@@ -26,6 +26,9 @@ gem "rack-cors", "0.4.0", require: "rack/cors"
 # Google api
 gem "google-api-client", "~> 0.10.3"
 
+# pagination
+gem "kaminari", "~> 0.16.3"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
