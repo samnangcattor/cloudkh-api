@@ -9,7 +9,8 @@ namespace :data do
 
     p "Create 100 users"
     (1..100).each do
-      User.create! name: Faker::Name.name
+      User.create! name: Faker::Name.name, avatar: Faker::Avatar.image, age: 18,
+        address: Faker::Address.street_address
     end
 
     p "Finish create database"
