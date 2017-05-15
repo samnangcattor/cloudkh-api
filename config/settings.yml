@@ -1,2 +1,4 @@
 timeout: 10800
 retries: 5
+users:
+  per_page: 25
