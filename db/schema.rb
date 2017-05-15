@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170515070146) do
   create_table "videos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string   "title"
     t.string   "google_file"
-    t.integer  "type"
+    t.integer  "mime_type"
     t.integer  "status"
     t.integer  "user_id"
     t.datetime "created_at",  null: false

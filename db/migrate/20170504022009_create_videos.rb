@@ -3,7 +3,7 @@ class CreateVideos < ActiveRecord::Migration[5.0]
     create_table :videos do |t|
       t.string :title
       t.string :google_file
-      t.integer :type
+      t.integer :mime_type
       t.integer :status
 
       t.references :user, index: true
