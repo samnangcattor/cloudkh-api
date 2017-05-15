@@ -2,3 +2,11 @@ timeout: 10800
 retries: 5
 users:
   per_page: 25
+videos:
+  status:
+    done: 0
+    process: 1
+  mime_types:
+    mp4: 0
+    avi: 1
+    mkv: 2
