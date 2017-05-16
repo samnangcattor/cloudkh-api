@@ -24,4 +24,13 @@ class VideoProvider
       }
     end
   end
+
+  def count_by_status
+    {
+      total: @videos.count,
+      done: @videos.done.count,
+      progress: @videos.progress.count,
+      ban: @videos.ban.count
+    }
+  end
 end

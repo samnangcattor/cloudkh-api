@@ -5,7 +5,8 @@ users:
 videos:
   status:
     done: 0
-    process: 1
+    progress: 1
+    ban: 2
   mime_types:
     mp4: 0
     avi: 1
