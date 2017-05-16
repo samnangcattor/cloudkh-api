@@ -1,6 +1,9 @@
 class Users::VideosController < ApplicationController
   def index
     return all if params[:all] == Settings.conditions.true
+    user = User.find params[:user_id]
+    videos_count = VideoProvider.new(user).count_by_status
+    render json: {video: videos_count}
   end
 
   private
