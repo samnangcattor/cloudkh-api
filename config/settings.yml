@@ -1,7 +1,7 @@
 timeout: 10800
 retries: 5
 users:
-  per_page: 25
+  per_page: 25.0
 videos:
   status:
     done: 0
@@ -10,3 +10,7 @@ videos:
     mp4: 0
     avi: 1
     mkv: 2
+  per_page: 25.0
+conditions:
+  false: "false"
+  true: "true"

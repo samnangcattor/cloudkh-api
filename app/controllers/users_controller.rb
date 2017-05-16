@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     user_total = users.count
     page = params[:page]
     users = users.page(page).per Settings.users.per_page
-    last_page = user_total / Settings.users.per_page
+    last_page = (user_total / Settings.users.per_page).ceil
     response = {
       users: users,
       user_total: user_total,
