@@ -30,6 +30,10 @@ namespace :data do
          mime_type: mime_types.sample, google_file: google_files.sample
       end
     end
+
+    p "Create a payment plan"
+    PaymentPlan.create! name: Settings.paypal.payment_plan, price: 30
+
     p "Finish create database"
   end
 end

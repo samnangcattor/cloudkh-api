@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515070146) do
+ActiveRecord::Schema.define(version: 20170706092114) do
+
+  create_table "payment_plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "registrations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+    t.integer  "payment_plan_id"
+    t.string   "full_name"
+    t.string   "email"
+    t.string   "telephone"
+    t.text     "notification_params", limit: 65535
+    t.integer  "status"
+    t.string   "transaction_id"
+    t.datetime "purchased_at"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["payment_plan_id"], name: "index_registrations_on_payment_plan_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string   "name"
