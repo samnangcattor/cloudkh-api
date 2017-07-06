@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   end
 
   get "/videos", to: "users/videos#index"
+  resources :registrations
+  post "/registrations/:id" => "registrations#show"
+  post "/hook" => "registrations#hook"
 end

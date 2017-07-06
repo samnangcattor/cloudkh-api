@@ -15,3 +15,9 @@ videos:
 conditions:
   false: "false"
   true: "true"
+paypal:
+  payment_plan: "Basic"
+  statuses:
+    completed: "Completed"
+    failed: "Failed"
+    pending: "Pending"
