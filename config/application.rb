@@ -4,6 +4,8 @@ require "rails/all"
 require "google/apis/drive_v3"
 require "googleauth"
 require "googleauth/stores/file_token_store"
+require "google/apis/gmail_v1"
+require "google/apis/calendar_v3"
 
 # Require the gems listed in Gemfile, including any gems
 # you"ve limited to :test, :development, or :production.

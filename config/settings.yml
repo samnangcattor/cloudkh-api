@@ -21,3 +21,22 @@ paypal:
     completed: "Completed"
     failed: "Failed"
     pending: "Pending"
+drives:
+  access_token: "access_token"
+  user_id: "default"
+  credentials:
+    format: ".credentials"
+    path: "lib/google_drive/"
+  file: "0B8qFJJCJxA49UnlYR3JJQU9HcGs"
+  timeout: 3300
+  scopes:
+    full: ['https://www.googleapis.com/auth/plus.me', 'https://www.googleapis.com/auth/userinfo.profile', 'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/calendar', 'https://mail.google.com/', 'openid', 'email', 'profile']
+    read_only: "https://www.googleapis.com/auth/drive.readonly"
+  client_secret_paths:
+    full: "lib/google_drive/client_secret.json"
+    read_only: "lib/google_drive/client_secret_read.json"
+  oob_uri: "http://dev.cloudkh.com/oauth2callback"
+  application_name: "CloudKH"
+  yamls:
+    full: "cloudkh_full.yaml"
+    read_only: "cloudkh_read.yaml"
