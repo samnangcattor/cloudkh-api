@@ -25,10 +25,12 @@ class RegistrationsController < ApplicationController
   protect_from_forgery except: [:hook]
   def hook
     params.permit! # Permit all Paypal input params
-    status = params[:payment_status]
+    # status = params[:payment_status]
     if params[:payment_status] == Registration.statuses.completed
       @registration = Registration.find params[:invoice]
-      # @registration.update_attributes notification_params: params, status: status, transaction_id: params[:txn_id], purchased_at: Time.zone.now
+      # @registration.update_attributes notification_params: params,
+      #  status: status, transaction_id: params[:txn_id],
+      #  purchased_at: Time.zone.now
       @registration.update_attributes build_registration_params(params)
     end
     render nothing: true
@@ -47,7 +49,7 @@ class RegistrationsController < ApplicationController
     {
       notification_params: params,
       status: params[:payment_status],
-      transaction_id: params[:txn_id]
+      transaction_id: params[:txn_id],
       purchased_at: Time.zone.now
     }
   end

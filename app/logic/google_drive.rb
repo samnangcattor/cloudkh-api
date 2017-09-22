@@ -6,10 +6,10 @@ class GoogleDrive
         client.request_options.open_timeout_sec = Settings.timeout
         client.request_options.retries = Settings.retries
       end
-      client_secret_path = "lib/google_drive/client_secret.json"
-      credentials_path = File.join "lib/google_drive/",
-        ".credentials", "cloudkh_full.yaml"
-      scope = "https://www.googleapis.com/auth/drive"
+      client_secret_path = Settings.drives.client_secret_paths.full
+      credentials_path = File.join Settings.drives.credentials.path,
+        Settings.drives.credentials.format, Settings.drives.yamls.full
+      scope = Settings.drives.scopes.full
       authorization = authorize client_secret_path, credentials_path, scope
       service.authorization = authorization
       service
@@ -21,13 +21,26 @@ class GoogleDrive
         client.request_options.open_timeout_sec = Settings.timeout
         client.request_options.retries = Settings.retries
       end
-      client_secret_path = "lib/google_drive/client_secret_read.json"
-      credentials_path = File.join "lib/google_drive/",
-        ".credentials", "cloudkh_read.yaml"
-      scope = "https://www.googleapis.com/auth/drive.readonly"
+      client_secret_path = Settings.drives.client_secret_paths.read_only
+      credentials_path = File.join Settings.drives.credentials.path,
+        Settings.drives.credentials.format, Settings.drives.yamls.read_only
+      scope = Settings.drives.scopes.read_only
       authorization = authorize client_secret_path, credentials_path, scope
       service.authorization = authorization
       service
+    end
+
+    def get_access_token service
+      redis = Redis.new
+      redis_key = Settings.drives.access_token + service.authorization.scope[0]
+      access_token = redis.get redis_key
+      unless access_token.present?
+        service.get_file Settings.drives.file
+        access_token = service.authorization.access_token
+        redis.set redis_key, access_token
+        redis.expire redis_key, Settings.drives.timeout
+      end
+      access_token
     end
 
     private
@@ -39,7 +52,7 @@ class GoogleDrive
         Stores::FileTokenStore.new file: credentials_path
       authorizer = Google::Auth::UserAuthorizer.new client_id,
         scope, token_store
-      user_id = "default"
+      user_id = Settings.drives.user_id
       credentials = authorizer.get_credentials user_id
       credentials
     end

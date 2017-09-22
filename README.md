@@ -6,3 +6,8 @@ To reload database in development.
 
 ```
   bundle exec rubocop
+
+## Product Configure
+
+```
+https://docs.google.com/spreadsheets/d/1sCEUgGpyi7bUguLa94OcBDkwdI1di785WRqFvtxfoOk
